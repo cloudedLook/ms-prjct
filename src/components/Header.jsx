@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 
 import { Container } from "./Container";
@@ -38,7 +38,7 @@ export const Header = () => {
 
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
-  useEffect(() => {
+  useMemo(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
   return (
