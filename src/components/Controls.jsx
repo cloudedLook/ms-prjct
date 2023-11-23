@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import styled from "styled-components";
 
 import { Search } from "./Search";
@@ -28,7 +28,7 @@ export const Controls = ({ onSearch }) => {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
 
-  useEffect(() => {
+  useMemo(() => {
     const regionValue = region?.value || "";
     onSearch(search, regionValue);
   }, [search, region]);

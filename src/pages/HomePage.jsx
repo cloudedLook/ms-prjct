@@ -33,6 +33,11 @@ export const HomePage = ({ setCountries, countries }) => {
     if (!countries.length)
       axios.get(ALL_COUNTRIES).then(({ data }) => setCountries(data));
   }, []);
+
+  useMemo(() => {
+    handleSearch();
+  }, [countries]);
+
   return (
     <>
       <Controls onSearch={handleSearch} />
